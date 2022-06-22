@@ -35,16 +35,16 @@ canvas.addEventListener("mousedown", (e)=>{
     //     y: e.clientY
     // })
     let data = {
-            x: e.clientX,
-            y: e.clientY
+        x: e.clientX - canvas.offsetLeft,
+        y: e.clientY - canvas.offsetTop,
         }
     socket.emit("beginPath", data);//data goes to server, here beginPth is idntifier
 })
 canvas.addEventListener("mousemove", (e)=>{
     if(mousedown){
         let data = {
-            x: e.clientX,
-            y: e.clientY,
+            x: e.clientX - canvas.offsetLeft,
+            y: e.clientY - canvas.offsetTop,
             color: flag3? "white":pencolor,
             width: flag3? eraserWidth : pencilWidth
         }
@@ -56,15 +56,12 @@ canvas.addEventListener("mouseup", (e)=>{
     //undoredo functionality when a path is completed
     let url = canvas.toDataURL();
     undoredoTracker.push(url);
-    console.log(undoredoTracker.length);
     track = undoredoTracker.length - 1; //points to last url
-    console.log("track" , track);
 })
 
 undo.addEventListener(("click"), (e)=>{
     if(track > 0){ //so that it not go to -ve in undoredo array
         track--;
-        console.log("track undo" , track);
     }
     //action
     let data = {
@@ -79,7 +76,6 @@ undo.addEventListener(("click"), (e)=>{
 function undoredoCanvas(trackObj){
     track = trackObj.trackValue;
     undoredoTracker = trackObj.undoredoTracker;
-alert("ins")
     let img = new Image(); //new image reference element
     img.src = undoredoTracker[track]; //src = url
     img.onload = (e)=>{ //when it loads for ms image put that on the canvas using tool API
@@ -90,7 +86,6 @@ alert("ins")
 redo.addEventListener(("click"), (e)=>{
     if(track < undoredoTracker.length-1){
         track++;
-        console.log("track redo" , track);
     }
     //action
     let data = {

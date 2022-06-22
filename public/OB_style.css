@@ -21,13 +21,13 @@ body{
 }
 .tools-cont{
     height: 5rem;
-    width: 60%;
+    width: 60vw;
     /* display: flex; */
     flex-wrap: wrap;
     background-color: lightgreen;
     position: absolute;
     top: 1rem;
-    left: 20%;
+    left: calc((100vw - 60vw)/2);
     justify-content: space-around;
     display: none;
     /* as initially dont show tools cont show when option cont is not clicked 
@@ -36,7 +36,7 @@ body{
 }
 .tools-cont > *{
     /* width by 60% / 7 elements */
-    width: 8.6%;
+    width: 8.571vw;
     font-size: 4rem;
     padding-top: 0.5rem;
 }
@@ -110,7 +110,7 @@ body{
     align-items: center;
     position: absolute;
     top: 6rem;
-    left: 28.6%;
+    left: 27%;
     /* left: 20% of margin left + 8.6% width of pencil tool */
     display: none;
     /* as initially not to show, show only when eraser is clicked */
@@ -170,4 +170,92 @@ img{
 }
 canvas{
     z-index: 2;
+}
+
+@media screen and (min-width: 426px) and (max-width: 769px){
+    .options-cont{
+        background-color: gray;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    position: absolute;
+    top: 1rem;
+    left: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    z-index: 1;
+    }
+    .tools-cont{
+        height: 3rem;
+        position: absolute;
+        top: 1rem;
+        left: calc((100vw - 60vw)/2);
+    }
+    .tools-cont>*{
+        font-size: 2rem;
+    }
+}
+
+@media screen and (min-width: 321px) and (max-width: 426px){
+    .tools-cont{
+        height: 2rem;
+        position: absolute;
+        left: 5rem;
+        top: 1rem;
+    }
+    .tools-cont>*{
+        font-size: 1.3rem;
+    }
+    .options-cont{
+        background-color: yellow;
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    }
+    .pencil-tool{
+    height: 3rem;
+    width: 8.5vw;
+    background-color: bisque;
+    position: absolute;
+    top: 3rem;
+    left: 5rem;
+    border-radius: 3px;
+    display: none;
+    /* as initially not to show, show only when pencil is clicked */
+}
+    .pencil-color-cont{
+        height: calc(100% - 1rem);
+        background-color: yellow;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* gap addsspace b/w  element*/
+        gap: 0.2rem;
+    }
+    .eraser-tool-cont{
+        width: 7.6%;
+        position: absolute;
+        top: 3rem;
+        left: 7.3rem;
+        /* width: ; */
+    }
+    .sticky-cont{
+        height: 6rem;
+        width: 10%;
+        position: absolute;
+        /* background-color: blue; */
+        top: 3rem;
+        left: 50%;
+    }
+    .header-cont{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
 }
