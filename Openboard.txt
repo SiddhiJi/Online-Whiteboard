@@ -17,3 +17,8 @@ JS library is Socket.io-- >> 1. first we will make a server   -> npm init (enter
 To HOST-:
 
 1. sign up on github and heroku
+2. create new repo
+3. if ant=y changed perform here on code change it as well on git repo so changes are done there also by writing on terminal-:
+   git add .
+   git commit -m "update"
+   git push
