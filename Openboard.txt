@@ -1,0 +1,19 @@
+Openboard is a tool on which we draw graphics
+
+Task 1 -: UI structuring (HTML + CSS) & Total functionalities
+          Canvas --> Intro and Basic graphics
+
+
+
+Socket.io to achieve real time communication. Dataflow via sockets .
+JS library is Socket.io-- >> 1. first we will make a server   -> npm init (enter)
+                                install npm i socket.io and npm install express
+                                server initialize and listen and start(by node app.js on terminal)
+                                socket -> cdn frontend , connection backend
+
+
+
+
+To HOST-:
+
+1. sign up on github and heroku
