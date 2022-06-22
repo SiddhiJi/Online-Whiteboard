@@ -110,7 +110,7 @@ body{
     align-items: center;
     position: absolute;
     top: 6rem;
-    left: 27%;
+    left: 29%;
     /* left: 20% of margin left + 8.6% width of pencil tool */
     display: none;
     /* as initially not to show, show only when eraser is clicked */
