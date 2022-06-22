@@ -6,7 +6,7 @@ const app = express(); //initialize and server ready
 app.use(express.static("public")); //goes inside public folder and displays index.html on all systems
 
 //functioning server to listen as dataflow may start with it anytime
-let port = 5000; //can be any number like 5000, 8080
+let port = process.env.PORT||5000; //can be any number like 5000, 8080
 let server = app.listen(port, ()=>{   //callback func after making port
     console.log("Listening to port "+port);
 });
