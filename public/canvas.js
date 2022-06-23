@@ -17,9 +17,9 @@ let undoredoTracker = []; //data
 let track = 0;  //track increases when undo , decreases when redo
 
 let mousedown = false;
-var socket = io('ws://localhost:5000', {transports: ['websocket']});
+// const socket = io('ws://localhost:5000', {transports: ['websocket']});
 
-//drwaing path on canvas (code taken from google search-> draing graphics canvas mdn)
+//drwaing path on canvas (code taken  google search-> draing graphics canvas mdn)
 let tool = canvas.getContext("2d"); //all graphics performed can be acced by this tool onlu, its a API to draw graphics
 
 tool.strokeStyle = pencolor; //changes color of path drawn defult is black
