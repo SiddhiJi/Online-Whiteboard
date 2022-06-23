@@ -1,5 +1,4 @@
 const express = require("express");//access
-const socket = require("socket.io");
 
 const app = express(); //initialize and server ready
 
@@ -13,7 +12,7 @@ let server = app.listen(port, ()=>{   //callback func after making port
 //our application will start listening, and when any system enters, that system will connect to this srver and express will display 
 
 //connect with server socket
-let io = socket(server); //server connection made
+let io = require("socket.io")(server); //server connection made
 
 io.on("connection", (socket)=>{
     console.log("made connection with socket");
