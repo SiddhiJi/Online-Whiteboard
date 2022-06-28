@@ -22,17 +22,14 @@ io.on("connection", (socket)=>{
         //transfer to all connected comp
         //data -> frontend passed data
         io.sockets.emit("beginPath", data);   
-        beginPath(data) 
     })
 
     socket.on("drawstroke", (data)=>{
         io.sockets.emit("drawstroke", data);
-        drawStroke(data)
     })
 
     socket.on("redoundo", (data)=>{
         io.sockets.emit("redoundo", data);
-        undoredoCanvas(data);
     })
 })
-//nodemon npn install -> if appli crashed then it will detect error and again restart
+// //nodemon npn install -> if appli crashed then it will detect error and again restart

@@ -47,6 +47,11 @@ eraser.addEventListener("click",(e)=>{
 })
 
 sticky.addEventListener("click", (e)=>{
+    //perform slight color change when element is clicked
+    sticky.style.color = "gray";
+    setInterval(() => {
+        sticky.style.color = "black";
+    }, 100);
     let stickyTemplateHTML = `
     <div class="header-cont">
     <div class="minimize"></div>
@@ -125,6 +130,12 @@ function createStiky(stickyTemplateHTML)
       };
 }
 upload.addEventListener("click", (e)=>{
+    //perform slight color change when element is clicked
+    upload.style.color = "gray";
+    setInterval(() => {
+        upload.style.color = "black";
+    }, 100);
+
     //ope file explorer
     let input = document.createElement("input");
     input.setAttribute("type", "file");
@@ -133,6 +144,7 @@ upload.addEventListener("click", (e)=>{
     input.addEventListener("change", (e)=>{
         let file = input.files[0]; //contains array of file in file explorer
         let url =  URL.createObjectURL(file);
+        alert(url)
         
         let stickyTemplateHTML = `
         <div class="header-cont">
@@ -140,7 +152,7 @@ upload.addEventListener("click", (e)=>{
         <div class="remove"></div>
     </div>
     <div class="note-cont">
-        <img src="${url} />
+        <img src="${url}" />
     </div>  
         `;
     createStiky(stickyTemplateHTML);

@@ -38,6 +38,7 @@ canvas.addEventListener("mousedown", (e)=>{
         y: e.clientY - canvas.offsetTop,
         }
     socket.emit("beginPath", data);//data goes to server, here beginPth is idntifier
+    // beginPath(data);
 })
 canvas.addEventListener("mousemove", (e)=>{
     if(mousedown){
@@ -47,6 +48,7 @@ canvas.addEventListener("mousemove", (e)=>{
             color: flag3? "white":pencolor,
             width: flag3? eraserWidth : pencilWidth
         }
+        // drawStroke(data);
         socket.emit("drawstroke", data)//send data to server  where drawstroke is identifier
     }
 })
@@ -59,6 +61,11 @@ canvas.addEventListener("mouseup", (e)=>{
 })
 
 undo.addEventListener(("click"), (e)=>{
+    //perform slight color change when element is clicked
+    undo.style.color = "gray";
+    setInterval(() => {
+        undo.style.color = "black";
+    }, 100);
     if(track > 0){ //so that it not go to -ve in undoredo array
         track--;
     }
@@ -69,7 +76,7 @@ undo.addEventListener(("click"), (e)=>{
     }
     //sending data to server
     socket.emit("redoundo", data);
-    // undoredoCanvas(trackObj);
+    // undoredoCanvas(data);
 })
 
 function undoredoCanvas(trackObj){
@@ -83,6 +90,12 @@ function undoredoCanvas(trackObj){
 }
 
 redo.addEventListener(("click"), (e)=>{
+    //perform slight color change when element is clicked
+    redo.style.color = "gray";
+    setInterval(() => {
+        redo.style.color = "black";
+    }, 100);
+
     if(track < undoredoTracker.length-1){
         track++;
     }
@@ -93,7 +106,7 @@ redo.addEventListener(("click"), (e)=>{
     }
     //sending data to server
     socket.emit("redoundo", data);
-    // undoredoCanvas(trackObj);
+    // undoredoCanvas(data);
 })
 
 function beginPath(strokeObj){
@@ -131,15 +144,23 @@ eraser.addEventListener("click", (e)=>{
     if(flag3){
         tool.strokeStyle = "white";
         tool.lineWidth = eraserWidth;
+        eraser.style.color = "gray";
     }
     else{
         //back to initial pen width and color if arser deactivated
         tool.strokeStyle = pencolor;
         tool.lineWidth = pencilWidth;
+        eraser.style.color = "black";
     }
 })
 
 download.addEventListener("click", (e)=>{
+    //perform slight color change when element is clicked
+    download.style.color = "gray";
+    setInterval(() => {
+        download.style.color = "black";
+    }, 100);
+
     let url = canvas.toDataURL(); //converts canvas with graphics into url which can be downloaded
 
     let a = document.createElement("a");
@@ -147,6 +168,8 @@ download.addEventListener("click", (e)=>{
     a.download = "board.jpg";
     a.click();
 })
+
+
 
 // tool.beginPath(); //new path will generate
 // tool.moveTo(10,10); //start point of path

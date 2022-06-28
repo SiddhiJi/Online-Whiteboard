@@ -48,19 +48,11 @@
     <canvas></canvas>
     <script src="https://cdn.socket.io/4.5.0/socket.io.min.js" 
     integrity="sha384-7EyYLQZgWBi67fBtVxw60/OWl1kjsfrPFcaU0pp0nAh+i8FD068QogUvg85Ewy1k" crossorigin="anonymous"></script>
-    <!-- socket.io cdn script to connect through frontend with backend -->
     <script>
-        var connectionOptions =  {
-            "force new connection" : true,
-            "reconnectionAttempts": "Infinity", 
-            "timeout" : 10000,                  
-            "transports" : ["websocket"]
-        };
-        const socket = io.connect('https://online-board123.herokuapp.com' , connectionOptions);
-        socket.addEventListener('error', function (event) {
-  console.log('WebSocket error: ', event);
-});
+        let socket = io.connect("http://localhost:8080");
     </script>
+
+    <!-- socket.io cdn script to connect through frontend with backend -->
     <!-- got this methid access by above scriptlibrary, first system has to connect with this url, to backend through frontend by this url  -->
     <script src="./OB_script.js"></script>
     <script src="./canvas.js"></script>
